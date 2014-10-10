@@ -24,4 +24,5 @@ module Divisio
     adapter_class = options.fetch(:adapter_type) { default_persistence }
     Object.const_get("Divisio::#{adapter_class}Adapter")
   end
+
 end

@@ -1,5 +1,6 @@
 module Divisio
   class ModuloAlgorithm
+
     attr_reader :key
     private :key
 
@@ -17,5 +18,6 @@ module Divisio
 
       variants[position]
     end
+
   end
 end

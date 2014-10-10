@@ -10,6 +10,7 @@ module Divisio
       identity_object = Identity.find_or_create_by(value: identity)
       experiment_scope = identity_object.experiments.where(experiment_name: experiment_name)
       return experiment_scope.first.assigned_variant if experiment_scope.any?
+
       variant_for_identity = assign_variant(experiment_name, variants, identity)
       experiment = ExperimentVariant.new(experiment_name: experiment_name, assigned_variant: variant_for_identity)
       identity_object.experiments << experiment

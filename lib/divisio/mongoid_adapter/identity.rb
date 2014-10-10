@@ -1,6 +1,7 @@
 module Divisio
   module MongoidAdapter
     class Identity
+
       include Mongoid::Document
       include Mongoid::Timestamps
 
@@ -9,6 +10,7 @@ module Divisio
       field :value, type: String
 
       validates_presence_of :value
+
     end
   end
 end
