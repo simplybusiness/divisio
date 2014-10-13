@@ -5,13 +5,15 @@ class Divisio
       include Mongoid::Document
       include Mongoid::Timestamps
 
+      validates_presence_of :name
+      validates_presence_of :variant
+      validates_presence_of :identifier
+
       field :name, type: String
-      field :identity, type: String
+      field :identifier, type: String
       field :variant, type: String
 
-      validates_presence_of :name, :variant, :identity
-
-      index({ name: 1, identity: 1}, { unique: true})
+      index({ name: 1, identifier: 1}, { unique: true})
 
     end
   end
