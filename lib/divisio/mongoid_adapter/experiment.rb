@@ -11,7 +11,7 @@ module Divisio
 
       validates_presence_of :name, :variant, :identity
 
-      index({ name: 1, identity: 1}, { uniq: true})
+      index({ name: 1, identity: 1}, { unique: true})
 
     end
   end
