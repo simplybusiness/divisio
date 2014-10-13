@@ -24,12 +24,12 @@ experiment_name = 'experiment1'
 variants=[1,2,3]
 identity="dragos"
 
-Divisio.split(experiment_name, variants, identity, adapter_type: Divisio::MONGOID_ADAPTER) # ==>> "1"
+Divisio.split(experiment_name, variants, identity, adapter: Divisio::MongoidAdapter) # ==>> "1"
 ```
 You can also specify the default adapter in your initializers as so:
 
 ```ruby
-Divisio.default_adapter = Divisio::MONGOID_ADAPTER
+Divisio.default_adapter = Divisio::MongoidAdapter
 ```
 
 

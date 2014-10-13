@@ -1,6 +1,6 @@
 module Divisio
   module MongoidAdapter
-    class ExperimentStore
+    class Experiment
 
       include Mongoid::Document
       include Mongoid::Timestamps

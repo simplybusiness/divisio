@@ -5,12 +5,10 @@ end
 module Divisio
 
   #change adapter type by providing different :adapter_type option to split method
-  @default_adapter = "Test"
+  @default_adapter = Divisio::TestAdapter
   class << self
     attr_accessor :default_adapter
   end
-
-  MONGOID_ADAPTER = "Mongoid"
 
   def self.split(experiment_name, variants, identity, options = {})
     adapter(options).split(experiment_name, variants, identity)
@@ -21,8 +19,7 @@ module Divisio
   end
 
   def self.adapter(options)
-    adapter_class = options.fetch(:adapter_type) { default_adapter }
-    Object.const_get("Divisio::#{adapter_class}Adapter")
+    options.fetch(:adapter) { default_adapter }
   end
 
 end
