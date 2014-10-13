@@ -1,5 +1,6 @@
 test:
-  sessions:
-    default:
-      database: divisio_test
-      hosts: localhost
+  sessions:
+    default:
+      database: divisio_test
+      hosts:
+        - localhost:27017

@@ -5,9 +5,8 @@ class Divisio
       include Mongoid::Document
       include Mongoid::Timestamps
 
-      validates_presence_of :name
-      validates_presence_of :variant
-      validates_presence_of :identifier
+      validates_presence_of :name, :variant, :identifier
+      validates_uniqueness_of :identifier, scope: :name
 
       field :name, type: String
       field :identifier, type: String
