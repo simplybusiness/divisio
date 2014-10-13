@@ -1,4 +1,4 @@
-module Divisio
+class Divisio
   class ModuloAlgorithm
 
     attr_reader :key

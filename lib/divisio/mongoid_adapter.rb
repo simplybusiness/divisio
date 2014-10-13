@@ -2,13 +2,13 @@
   require_relative "mongoid_adapter/#{f}"
 end
 
-module Divisio
+class Divisio
   module MongoidAdapter
 
     def self.split(experiment_name, variants, identity)
       variants = Array(variants).map(&:to_s)
       experiment_object = Experiment.where(identity: identity, name: experiment_name).first
-      return experiment_object.assigned_variant if experiment_object
+      return experiment_object.variant if experiment_object
 
       variant_for_identity = assign_variant(experiment_name, variants, identity)
       experiment_object = Experiment.new(identity: identity, name: experiment_name, variant: variant_for_identity)

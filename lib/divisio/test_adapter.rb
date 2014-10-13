@@ -1,4 +1,4 @@
-module Divisio
+class Divisio
   module TestAdapter
 
     def self.split(experiment_name, variants, identity)

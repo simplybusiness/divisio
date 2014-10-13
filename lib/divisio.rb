@@ -2,7 +2,7 @@
   require "divisio/#{f}"
 end
 
-module Divisio
+class Divisio
 
   #change adapter type by providing different :adapter_type option to split method
   @default_adapter = Divisio::TestAdapter
@@ -10,16 +10,19 @@ module Divisio
     attr_accessor :default_adapter
   end
 
-  def self.split(experiment_name, variants, identity, options = {})
-    adapter(options).split(experiment_name, variants, identity)
+  attr_accessor :adapter
+  private :adapter
+
+  def initialize(adapter: self.class.default_adapter)
+    @adapter = adapter
   end
 
-  def self.delete_experiment_for_identity(identity, experiment_name, options = {})
-    adapter(options).delete_experiment_for_identity(identity, experiment_name)
+  def split(experiment_name, variants, identity)
+    adapter.split(experiment_name, variants, identity)
   end
 
-  def self.adapter(options)
-    options.fetch(:adapter) { default_adapter }
+  def delete_experiment_for_identity(identity, experiment_name)
+    adapter.delete_experiment_for_identity(identity, experiment_name)
   end
 
 end

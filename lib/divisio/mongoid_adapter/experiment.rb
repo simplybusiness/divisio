@@ -1,4 +1,4 @@
-module Divisio
+class Divisio
   module MongoidAdapter
     class Experiment
 
