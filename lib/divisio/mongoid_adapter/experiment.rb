@@ -5,11 +5,13 @@ module Divisio
       include Mongoid::Document
       include Mongoid::Timestamps
 
-      field :experiment_name, type: String
+      field :name, type: String
       field :identity, type: String
-      field :assigned_variant, type: String
+      field :variant, type: String
 
-      validates_presence_of :experiment_name, :assigned_variant, :identity
+      validates_presence_of :name, :variant, :identity
+
+      index({ name: 1, identity: 1})
 
     end
   end
