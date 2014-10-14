@@ -4,7 +4,6 @@ end
 
 class Divisio
 
-  #change adapter type by providing different :adapter_type option to split method
   @default_adapter = Divisio::TestAdapter
   class << self
     attr_accessor :default_adapter
