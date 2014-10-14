@@ -14,7 +14,8 @@ class Divisio
       experiment_object = Experiment.new(identifier: identity, name: experiment_name, variant: variant_for_identity)
 
       return variant_for_identity if experiment_object.save
-      raise "Experiment #{experiment_name} with variant #{variant_for_identity} failed to save for identity #{identity}"
+    rescue Moped::Errors::OperationFailure
+      self.split(experiment_name, variants, identity)
     end
 
     def self.delete_experiment_for_identity(identity, experiment_name)
