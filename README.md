@@ -1,6 +1,10 @@
 # Divisio
 
-TODO: Write a gem description
+This gem assigns identities to a variant inside an experiment. It is similar to ab-tests framework.
+
+A triplet - experiment, variants and identities will always produce the same variant outcome even if the test is deleted and rerun.
+
+You can run multiple instances of the framework inside the same application for different adapters
 
 ## Installation
 
@@ -24,12 +28,18 @@ experiment_name = 'experiment1'
 variants=[1,2,3]
 identity="dragos"
 
-Divisio.split(experiment_name, variants, identity, adapter: Divisio::MongoidAdapter) # ==>> "1"
+Divisio.new(adapter: Divisio::MongoidAdapter).split(experiment_name, variants, identity) # ==>> "1"
 ```
 You can also specify the default adapter in your initializers as so:
 
 ```ruby
 Divisio.default_adapter = Divisio::MongoidAdapter
+```
+
+then
+
+```ruby
+Divisio.new.split(experiment_name, variants, identity) # ==>> "1"
 ```
 
 
