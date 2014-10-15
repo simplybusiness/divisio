@@ -45,7 +45,7 @@ then
 Divisio.new.split(experiment_name, variants, identity) # ==>> "1"
 ```
 
-## Further example
+## Further examples
 
 You can use what it returns *directly*, for example if you want to render a partial you could do:
 ```ruby
