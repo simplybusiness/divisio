@@ -38,15 +38,6 @@ describe Divisio do
 
       Divisio.new(adapter: Divisio::MongoidAdapter).split(anything, anything, anything)
     end
-
-    context "identity normalization" do
-      it "downcases and removes whitespaces from identity" do
-        expect(Divisio::MongoidAdapter).to receive(:split).with(anything, anything, "testtest")
-
-        Divisio.new(adapter: Divisio::MongoidAdapter).split(anything, anything, "Test Test  ")
-      end
-    end
-
   end
 
   describe '#delete_experiment_for_identity' do

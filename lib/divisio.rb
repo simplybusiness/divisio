@@ -17,19 +17,11 @@ class Divisio
   end
 
   def split(experiment_name, variants, identity)
-    identity = normalized_identity(identity)
-
     adapter.split(experiment_name, variants, identity)
   end
 
   def delete_experiment_for_identity(identity, experiment_name)
     adapter.delete_experiment_for_identity(identity, experiment_name)
-  end
-
-  private
-
-  def normalized_identity(identity)
-    identity.to_s.gsub("\s", '').downcase
   end
 
 end
