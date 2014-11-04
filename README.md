@@ -25,6 +25,9 @@ Or install it yourself as:
 
     $ gem install divisio
 
+#Dependencies
+mongoid v4.0.0 or greater
+
 ## Usage
 ```ruby
 experiment_name = 'experiment1'
