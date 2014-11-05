@@ -32,13 +32,12 @@ describe Divisio::MongoidAdapter::Experiment do
     end
 
     context "uniqueness" do
-      before do
+
+      it "does not save second object with the same name and identifier" do
         subject.attributes = required_fields
         subject.save
         expect(described_class.count).to eq(1)
-      end
 
-      it "does not save second object with the same name and identifier" do
         required_fields[:variant] = "3"
         new_object = described_class.new(required_fields)
 
@@ -46,16 +45,12 @@ describe Divisio::MongoidAdapter::Experiment do
       end
 
       it "does not save second object in case of race condition because of mongo index" do
-        ::Mongoid::Tasks::Database.create_indexes
-        class_without_validator = described_class.clone
-        uniq_validator = class_without_validator._validators[:identifier].find{|v| v.is_a? Mongoid::Validatable::UniquenessValidator}
-        class_without_validator._validators[:identifier].delete(uniq_validator)
-        filter = class_without_validator._validate_callbacks.find{ |c| c.raw_filter == uniq_validator }.filter
-        class_without_validator.skip_callback :validate, filter
+        described_class.create_indexes
+        Mongoid.default_session[:divisio_mongoid_adapter_experiments].insert(required_fields)
+        expect(described_class.count).to eq(1)
 
-        required_fields[:variant] = "3"
-        new_object = class_without_validator.new(required_fields)
-        expect{ new_object.save }.to raise_exception(Moped::Errors::OperationFailure)
+        collection = described_class.collection
+        expect{collection.insert(required_fields)}.to raise_exception(Moped::Errors::OperationFailure)
       end
     end
   end

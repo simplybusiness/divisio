@@ -4,3 +4,5 @@ test:
       database: divisio_test
       hosts:
         - localhost:27017
+      options:
+        <%= "safe: true" if Mongoid::VERSION =~ /^3/%>
