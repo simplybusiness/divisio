@@ -1,9 +1,9 @@
-ENV['RACK_ENV'] = "test"
+ENV['RACK_ENV'] = 'test'
 
 require 'mongoid'
 require 'divisio'
 
-Mongoid.load!("mongoid.yml")
+Mongoid.load!('mongoid.yml')
 
 RSpec.configure do |config|
   config.before(:each) do
