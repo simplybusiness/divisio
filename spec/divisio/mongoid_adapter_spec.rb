@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Divisio::MongoidAdapter do
   let(:experiment) { 'experiment' }
   let(:variants) { ['1', '2', '3'] }

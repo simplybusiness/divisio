@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Divisio::MongoidAdapter::Experiment do
   describe "#save" do
 

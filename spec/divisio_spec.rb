@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Divisio do
   describe '::default_adapter' do
     it "has a default adapter" do

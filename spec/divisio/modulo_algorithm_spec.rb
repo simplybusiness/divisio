@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Divisio::ModuloAlgorithm do
   describe "#calc" do
     it "returns a variant based on key provided" do

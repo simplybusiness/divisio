@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Divisio::TestAdapter do
   describe "::split" do
     it "returns info that it is a test" do
