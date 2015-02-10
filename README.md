@@ -27,9 +27,23 @@ Or install it yourself as:
 
 ## Usage
 
+### Modulo adapter
+
+_This is the default adapter_
+
+```ruby
+experiment_name = 'experiment1'
+variants        = [1,2,3]
+identity        = 'dragos'
+
+Divisio.new.split(experiment_name, variants, identity) # ==>> 1
+```
+
 ### Mongoid adaper
 
 _Requires mongoid v4.0.0 or greater_
+
+This adapter will persist the experiment name, identifier, and variant information in a MongoDb collection called `experiments`.
 
 ```ruby
 experiment_name = 'experiment1'
