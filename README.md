@@ -25,17 +25,20 @@ Or install it yourself as:
 
     $ gem install divisio
 
-#Dependencies
-mongoid v4.0.0 or greater
-
 ## Usage
+
+### Mongoid adaper
+
+_Requires mongoid v4.0.0 or greater_
+
 ```ruby
 experiment_name = 'experiment1'
-variants=[1,2,3]
-identity="dragos"
+variants        = [1,2,3]
+identity        = 'dragos'
 
-Divisio.new(adapter: Divisio::MongoidAdapter).split(experiment_name, variants, identity) # ==>> "1"
+Divisio.new(adapter: Divisio::MongoidAdapter).split(experiment_name, variants, identity) # ==>> 1
 ```
+
 You can also specify the default adapter in your initializers as so:
 
 ```ruby
@@ -45,23 +48,25 @@ Divisio.default_adapter = Divisio::MongoidAdapter
 then
 
 ```ruby
-Divisio.new.split(experiment_name, variants, identity) # ==>> "1"
+Divisio.new.split(experiment_name, variants, identity) # ==>> 1
 ```
 
-## Further examples
+### Further examples
 
 You can use what it returns *directly*, for example if you want to render a partial you could do:
+
 ```ruby
-partial = Divisio.new.split("amazing partial", ["partial1", "partial2"], identity)
+partial = Divisio.new.split('amazing partial', ['partial1', 'partial2'], identity)
 render(partial)
 ```
 
 If we want to do complex logic based on some idiom, you need to do if/case statements:
+
 ```ruby
-#this metohd could be in a global helper
+# this method could be in a global helper
 def enable_partial_quotes
-  decision = Divisio.new.split("enable_partial_quotes", ["yes", "no"], identity)
-  decision == "yes"
+  decision = Divisio.new.split('enable_partial_quotes', ['yes', 'no'], identity)
+  decision == 'yes'
 end
 
 # .....
