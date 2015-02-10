@@ -1,11 +1,19 @@
 describe Divisio do
   describe '::default_adapter' do
     it 'has a default adapter' do
-      expect(Divisio.default_adapter).to eq(Divisio::TestAdapter)
+      expect(Divisio.default_adapter).to eq(Divisio::ModuloAdapter)
     end
   end
 
   describe '::default_adapter=' do
+    before do
+      @default_adapter = Divisio.default_adapter
+    end
+
+    after do
+      Divisio.default_adapter = @default_adapter
+    end
+
     it 'overwrites the default adapter' do
       Divisio.default_adapter = Divisio::MongoidAdapter
       expect(Divisio.default_adapter).to eq(Divisio::MongoidAdapter)
