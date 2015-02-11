@@ -5,8 +5,8 @@ class Divisio
     private :key, :variants
 
     def initialize(key, variants)
-      @key      = key
-      @variants = Array(variants)
+      @key      = key.to_s
+      @variants = variants_as_array(variants)
     end
 
     def calc
@@ -16,5 +16,15 @@ class Divisio
       variants[position]
     end
 
+    private
+
+    def variants_as_array(variants)
+      return Array(variants) unless variants.is_a? Hash
+      flattened_variants = []
+      variants.each_pair do |name, weight|
+        weight.times { flattened_variants << name }
+      end
+      flattened_variants
+    end
   end
 end

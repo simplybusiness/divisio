@@ -65,6 +65,24 @@ then
 Divisio.new.split(experiment_name, variants, identity) # ==>> '1'
 ```
 
+### Weighted variants
+
+Variants can be weighted by passing a hash of variants mapped to their relative weights, for example:
+
+```ruby
+experiment_name = 'experiment1'
+variants        = { a: 1, b: 2, c: 3 }
+identity        = 'dragos'
+
+Divisio.new.split(experiment_name, variants, identity) # ==>> :c
+```
+
+There are three variants in this example: `a`, `b`, `c`
+
+Variant `a` has a weight of 1, `b` has a weight of 2, `c` has a weight of 3.
+
+Effectively, this means that the chances of getting the variant `b` are twice a likely as getting the variant `a`. The chances of getting the variant `c` are thrice as likely as getting the variant `a`.
+
 ### Further examples
 
 You can use what it returns *directly*, for example if you want to render a partial you could do:
