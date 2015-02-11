@@ -1,6 +1,6 @@
 describe Divisio::MongoidAdapter do
   let(:experiment) { 'experiment' }
-  let(:variants)   { ['1', '2', '3'] }
+  let(:variants)   { [1, 2, 3] }
   let(:identity)   { 'identity' }
 
   describe '::split' do
@@ -13,6 +13,10 @@ describe Divisio::MongoidAdapter do
       it 'saves the experiment to the database' do
         expect_any_instance_of(Divisio::MongoidAdapter::Experiment).to receive(:save)
         subject
+      end
+
+      it 'converts the variant to string' do
+        expect(subject).to be_a String
       end
     end
 

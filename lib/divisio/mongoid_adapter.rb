@@ -8,11 +8,10 @@ class Divisio
     extend self
 
     def split(experiment_name, variants, identity)
-      variants = Array(variants).map(&:to_s)
       experiment_object = Experiment.where(identifier: identity, name: experiment_name).first
       return experiment_object.variant if experiment_object
 
-      variant_for_identity = super
+      variant_for_identity = super.to_s
       experiment_object = Experiment.new(identifier: identity, name: experiment_name, variant: variant_for_identity)
 
       return variant_for_identity if experiment_object.save
