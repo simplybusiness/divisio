@@ -4,7 +4,7 @@ end
 
 class Divisio
   module MongoidAdapter
-    include ModuloAdapter
+    include BaseAdapter
     extend self
 
     def split(experiment_name, variants, identity)

@@ -1,4 +1,4 @@
-shared_examples_for 'a modulo adapter' do
+shared_examples_for 'a base adapter' do
 
   describe '::split' do
     let(:experiment) { 'experiment' }

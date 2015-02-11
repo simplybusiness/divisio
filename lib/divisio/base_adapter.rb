@@ -1,5 +1,5 @@
 class Divisio
-  module ModuloAdapter
+  module BaseAdapter
     extend self
 
     def split(experiment_name, variants, identity)

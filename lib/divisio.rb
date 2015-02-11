@@ -1,10 +1,11 @@
-require 'divisio/modulo_adapter'
+require 'divisio/base_adapter'
+require 'divisio/no_persistence_adapter'
 require 'divisio/modulo_algorithm'
 require 'divisio/mongoid_adapter' if defined? Mongoid
 
 class Divisio
 
-  @default_adapter = Divisio::ModuloAdapter
+  @default_adapter = Divisio::NoPersistenceAdapter
   class << self
     attr_accessor :default_adapter
   end

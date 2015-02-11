@@ -27,9 +27,11 @@ Or install it yourself as:
 
 ## Usage
 
-### Modulo adapter
+### No persistence adapter
 
 _This is the default adapter_
+
+It returns the selected variant, but does not persist any information.
 
 ```ruby
 experiment_name = 'experiment1'

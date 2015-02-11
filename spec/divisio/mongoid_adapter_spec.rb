@@ -6,7 +6,7 @@ describe Divisio::MongoidAdapter do
   describe '::split' do
     subject{ described_class.split(experiment, variants, identity) }
 
-    it_behaves_like 'a modulo adapter'
+    it_behaves_like 'a base adapter'
 
     context 'new record' do
 

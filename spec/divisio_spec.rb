@@ -1,7 +1,7 @@
 describe Divisio do
   describe '::default_adapter' do
     it 'has a default adapter' do
-      expect(Divisio.default_adapter).to eq(Divisio::ModuloAdapter)
+      expect(Divisio.default_adapter).to eq(Divisio::NoPersistenceAdapter)
     end
   end
 
