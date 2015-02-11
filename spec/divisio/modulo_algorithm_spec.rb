@@ -24,7 +24,7 @@ describe Divisio::ModuloAlgorithm do
       let(:variants) { { a: 1, b: 2, c: 3 } }
 
       { blah8: :a, blah4: :b, blah0: :c}.each_pair do |key, expected_variant|
-        it "returns the variant by weight, based on the key provided: #{key}" do
+        it "returns the variant based on the key provided and weight: #{key}" do
           expect(Divisio::ModuloAlgorithm.new(key, variants).calc).to eq(expected_variant)
         end
       end
