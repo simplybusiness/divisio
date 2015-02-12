@@ -25,17 +25,36 @@ Or install it yourself as:
 
     $ gem install divisio
 
-#Dependencies
-mongoid v4.0.0 or greater
-
 ## Usage
+
+### No persistence adapter
+
+_This is the default adapter_
+
+It returns the selected variant, but does not persist any information.
+
 ```ruby
 experiment_name = 'experiment1'
-variants=[1,2,3]
-identity="dragos"
+variants        = [1,2,3]
+identity        = 'dragos'
 
-Divisio.new(adapter: Divisio::MongoidAdapter).split(experiment_name, variants, identity) # ==>> "1"
+Divisio.new.split(experiment_name, variants, identity) # ==>> 1
 ```
+
+### Mongoid adaper
+
+_Requires mongoid v4.0.0 or greater_
+
+This adapter will persist the experiment name, identifier, and variant information in a MongoDb collection called `experiments`. Note: The variant returned will be cast to a string.
+
+```ruby
+experiment_name = 'experiment1'
+variants        = [1,2,3]
+identity        = 'dragos'
+
+Divisio.new(adapter: Divisio::MongoidAdapter).split(experiment_name, variants, identity) # ==>> '1'
+```
+
 You can also specify the default adapter in your initializers as so:
 
 ```ruby
@@ -45,23 +64,43 @@ Divisio.default_adapter = Divisio::MongoidAdapter
 then
 
 ```ruby
-Divisio.new.split(experiment_name, variants, identity) # ==>> "1"
+Divisio.new.split(experiment_name, variants, identity) # ==>> '1'
 ```
 
-## Further examples
+### Weighted variants
+
+Variants can be weighted by passing a hash of variants mapped to their relative weights, for example:
+
+```ruby
+experiment_name = 'experiment1'
+variants        = { a: 1, b: 2, c: 3 }
+identity        = 'dragos'
+
+Divisio.new.split(experiment_name, variants, identity) # ==>> :c
+```
+
+There are three variants in this example: `a`, `b`, `c`
+
+Variant `a` has a weight of 1, `b` has a weight of 2, `c` has a weight of 3.
+
+Effectively, this means that the chances of getting the variant `b` are twice a likely as getting the variant `a`. The chances of getting the variant `c` are thrice as likely as getting the variant `a`.
+
+### Further examples
 
 You can use what it returns *directly*, for example if you want to render a partial you could do:
+
 ```ruby
-partial = Divisio.new.split("amazing partial", ["partial1", "partial2"], identity)
+partial = Divisio.new.split('amazing partial', ['partial1', 'partial2'], identity)
 render(partial)
 ```
 
 If we want to do complex logic based on some idiom, you need to do if/case statements:
+
 ```ruby
-#this metohd could be in a global helper
+# this method could be in a global helper
 def enable_partial_quotes
-  decision = Divisio.new.split("enable_partial_quotes", ["yes", "no"], identity)
-  decision == "yes"
+  decision = Divisio.new.split('enable_partial_quotes', ['yes', 'no'], identity)
+  decision == 'yes'
 end
 
 # .....
