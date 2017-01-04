@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Divisio::VERSION
   spec.authors       = ['Dragos Miron']
   spec.email         = ['tech@simplybusiness.co.uk']
-  spec.summary       = %q{Provides a splitting framework similar to AB testing}
-  spec.description   = %q{Provides a splitting framework similar to AB testing}
+  spec.summary       = 'Provides a splitting framework similar to AB testing'
+  spec.description   = 'Provides a splitting framework similar to AB testing'
   spec.homepage      = 'http://www.simplybusiness.co.uk'
   spec.license       = 'MIT'
 

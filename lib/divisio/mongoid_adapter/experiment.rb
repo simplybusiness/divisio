@@ -1,7 +1,6 @@
 class Divisio
   module MongoidAdapter
     class Experiment
-
       include Mongoid::Document
       include Mongoid::Timestamps
 
@@ -12,8 +11,7 @@ class Divisio
       field :identifier, type: String
       field :variant, type: String
 
-      index({ name: 1, identifier: 1}, { unique: true})
-
+      index({ name: 1, identifier: 1 }, unique: true)
     end
   end
 end

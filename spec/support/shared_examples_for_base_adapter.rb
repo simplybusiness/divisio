@@ -1,10 +1,9 @@
 shared_examples_for 'a base adapter' do
-
   describe '::split' do
     let(:experiment) { 'experiment' }
-    let(:variants)   { ['1', '2', '3'] }
+    let(:variants)   { %w(1 2 3) }
     let(:identity)   { 'identity' }
-    subject{ described_class.split(experiment, variants, identity) }
+    subject { described_class.split(experiment, variants, identity) }
 
     it 'returns a variant for the given experiment and identity' do
       expect(subject).to eq('3')

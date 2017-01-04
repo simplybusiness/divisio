@@ -4,7 +4,6 @@ require 'divisio/modulo_algorithm'
 require 'divisio/mongoid_adapter' if defined? Mongoid
 
 class Divisio
-
   @default_adapter = Divisio::NoPersistenceAdapter
   class << self
     attr_accessor :default_adapter

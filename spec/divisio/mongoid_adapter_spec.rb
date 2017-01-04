@@ -4,12 +4,11 @@ describe Divisio::MongoidAdapter do
   let(:identity)   { 'identity' }
 
   describe '::split' do
-    subject{ described_class.split(experiment, variants, identity) }
+    subject { described_class.split(experiment, variants, identity) }
 
     it_behaves_like 'a base adapter'
 
     context 'new record' do
-
       it 'saves the experiment to the database' do
         expect_any_instance_of(Divisio::MongoidAdapter::Experiment).to receive(:save)
         subject
@@ -21,7 +20,6 @@ describe Divisio::MongoidAdapter do
     end
 
     context 'old record' do
-
       before do
         Divisio::MongoidAdapter::Experiment.create(name: experiment, identifier: identity, variant: 'random')
       end
@@ -38,7 +36,7 @@ describe Divisio::MongoidAdapter do
   end
 
   describe '::delete_experiment_for_identity' do
-    subject{ described_class.delete_experiment_for_identity(identity, experiment) }
+    subject { described_class.delete_experiment_for_identity(identity, experiment) }
 
     context 'record exists in the database' do
       before do
@@ -46,7 +44,7 @@ describe Divisio::MongoidAdapter do
       end
 
       it 'deletes the record' do
-        expect{subject}.to change { Divisio::MongoidAdapter::Experiment.count }.from(1).to(0)
+        expect { subject }.to change { Divisio::MongoidAdapter::Experiment.count }.from(1).to(0)
       end
 
       it 'returns true' do

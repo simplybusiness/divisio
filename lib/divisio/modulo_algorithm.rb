@@ -1,6 +1,5 @@
 class Divisio
   class ModuloAlgorithm
-
     attr_reader :key, :variants
     private :key, :variants
 
