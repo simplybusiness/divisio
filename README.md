@@ -43,7 +43,7 @@ Divisio.new.split(experiment_name, variants, identity) # ==>> 1
 
 ### Mongoid adaper
 
-_Requires mongoid v4.0.0 or greater_
+_Requires mongoid v5.0.0 or greater_
 
 This adapter will persist the experiment name, identifier, and variant information in a MongoDb collection called `experiments`. Note: The variant returned will be cast to a string.
 

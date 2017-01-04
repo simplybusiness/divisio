@@ -9,6 +9,6 @@ Mongoid.load!('mongoid.yml')
 
 RSpec.configure do |config|
   config.before(:each) do
-    Mongoid::Sessions.default.collections.each(&:drop)
+    Mongoid.purge!
   end
 end

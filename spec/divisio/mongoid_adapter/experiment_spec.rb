@@ -44,11 +44,11 @@ describe Divisio::MongoidAdapter::Experiment do
 
       it 'does not save second object in case of race condition because of mongo index' do
         described_class.create_indexes
-        Mongoid.default_session[:divisio_mongoid_adapter_experiments].insert(required_fields)
+        Mongoid::Clients.default[:divisio_mongoid_adapter_experiments].insert_one(required_fields)
         expect(described_class.count).to eq(1)
 
         collection = described_class.collection
-        expect{collection.insert(required_fields)}.to raise_exception(Moped::Errors::OperationFailure)
+        expect{collection.insert_one(required_fields)}.to raise_exception(Mongo::Error::OperationFailure)
       end
     end
   end
