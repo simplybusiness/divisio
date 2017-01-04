@@ -23,7 +23,7 @@ class Divisio
       experiment_object = Experiment.where(identifier: identity, name: experiment_name).first
 
       return experiment_object.destroy if experiment_object
-      return false
+      false
     end
   end
 end
