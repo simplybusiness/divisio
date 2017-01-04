@@ -1,0 +1,8 @@
+Metrics/LineLength:
+  Max: 116
+
+Style/Documentation:
+  Enabled: false
+
+Style/ModuleFunction:
+  EnforcedStyle: 'extend_self'
