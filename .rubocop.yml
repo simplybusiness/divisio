@@ -2,8 +2,7 @@ Metrics/LineLength:
   Max: 116
 
 Metrics/BlockLength:
-  Exclude:
-  - './spec/*'
+  ExcludedMethods: ['describe', 'context']
 
 Style/Documentation:
   Enabled: false
