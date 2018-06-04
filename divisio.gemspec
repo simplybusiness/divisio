@@ -20,5 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'mongoid', '~> 6.0'
   spec.add_development_dependency 'rspec', '~> 3.5'
-  spec.add_development_dependency 'rubocop', '~> 0.46'
+  spec.add_development_dependency 'rubocop', '~> 0.49'
 end
