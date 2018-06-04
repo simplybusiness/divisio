@@ -11,7 +11,7 @@ describe Divisio::ModuloAlgorithm do
     end
 
     context 'when there are multiple variants provided' do
-      let(:variants) { %w(1 2 3) }
+      let(:variants) { %w[1 2 3] }
 
       { blah8: '1', blah4: '2', blah0: '3' }.each_pair do |key, expected_variant|
         it "returns the variant based on the key provided: #{key}" do

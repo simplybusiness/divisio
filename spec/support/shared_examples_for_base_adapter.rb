@@ -1,7 +1,7 @@
 shared_examples_for 'a base adapter' do
   describe '::split' do
     let(:experiment) { 'experiment' }
-    let(:variants)   { %w(1 2 3) }
+    let(:variants)   { %w[1 2 3] }
     let(:identity)   { 'identity' }
     subject { described_class.split(experiment, variants, identity) }
 
