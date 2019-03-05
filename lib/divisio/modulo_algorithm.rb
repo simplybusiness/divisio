@@ -19,6 +19,7 @@ class Divisio
 
     def variants_as_array(variants)
       return Array(variants) unless variants.is_a? Hash
+
       flattened_variants = []
       variants.each_pair do |name, weight|
         weight.times { flattened_variants << name }
