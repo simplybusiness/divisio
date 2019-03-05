@@ -21,8 +21,8 @@ class Divisio
 
     def delete_experiment_for_identity(identity, experiment_name)
       experiment_object = Experiment.where(identifier: identity, name: experiment_name).first
-
       return experiment_object.destroy if experiment_object
+
       false
     end
   end
