@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for 'a base adapter' do
   describe '::split' do
     let(:experiment) { 'experiment' }

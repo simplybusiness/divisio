@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Divisio do
   describe '::default_adapter' do
     it 'has a default adapter' do

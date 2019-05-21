@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Divisio::ModuloAlgorithm do
   describe '#calc' do
     let(:variants) {}
