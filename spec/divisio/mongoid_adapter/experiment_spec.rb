@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Divisio::MongoidAdapter::Experiment do
   describe '#save' do
     let(:required_fields) { { name: 'experiment', identifier: 'hash', variant: '2' } }

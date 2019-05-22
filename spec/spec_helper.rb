@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV['RACK_ENV'] = 'test'
 
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }

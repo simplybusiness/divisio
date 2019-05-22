@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Divisio
   class ModuloAlgorithm
     attr_reader :key, :variants

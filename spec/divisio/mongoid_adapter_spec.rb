@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Divisio::MongoidAdapter do
   let(:experiment) { 'experiment' }
   let(:variants)   { [1, 2, 3] }

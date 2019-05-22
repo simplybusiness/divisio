@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'divisio/base_adapter'
 require 'divisio/no_persistence_adapter'
 require 'divisio/modulo_algorithm'

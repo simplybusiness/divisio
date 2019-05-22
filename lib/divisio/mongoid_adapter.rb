@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 %w[experiment].each do |f|
   require_relative "mongoid_adapter/#{f}"
 end
