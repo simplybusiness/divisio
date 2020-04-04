@@ -12,7 +12,7 @@ class Divisio
   end
 
   attr_reader :adapter
-  private :adapter # rubocop:disable Style/AccessModifierDeclarations
+  private :adapter
 
   def initialize(adapter: self.class.default_adapter)
     @adapter = adapter
