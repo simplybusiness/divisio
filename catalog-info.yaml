@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: divisio
+  description: Divides participants to experiments into groups based on variants. 
+spec:
+  type: library
+  lifecycle: production
