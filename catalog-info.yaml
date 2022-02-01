@@ -5,4 +5,4 @@ metadata:
   description: Divides participants to experiments into groups based on variants. 
 spec:
   type: library
-  lifecycle: production
+  lifecycle: deprecated
